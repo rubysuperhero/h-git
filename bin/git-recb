@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+logs = `git reflog`.scan(/moving from (\S+) to (\S+)/).flatten.uniq
+
+logs -= logs.grep(/^[0-9a-f]{30,50}$/i)
+
+if ARGV.first
+  puts logs.grep(Regexp.new(ARGV.first))
+else
+  puts logs.first(15)
+end
+
