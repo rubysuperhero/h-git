@@ -1,5 +1,5 @@
 project: h-git
-bins:
+bin:
   - bin/git-branch-prefix
   - bin/git-bs
   - bin/git-cpick
